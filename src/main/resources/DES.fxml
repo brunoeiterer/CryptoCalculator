@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.GridPane?>
+
+<GridPane xmlns:fx="http://javafx.com/fxml" fx:controller="DESController">
+    <Label GridPane.columnIndex="0" GridPane.rowIndex="0" text="Input" />
+    <TextArea GridPane.columnIndex="0" GridPane.rowIndex="3" fx:id="DESInputTextArea" />
+
+    <Label GridPane.columnIndex="0" GridPane.rowIndex="4" text="Key" />
+    <TextField GridPane.columnIndex="0" GridPane.rowIndex="7" fx:id="DESKeyTextField" />
+
+    <Label GridPane.columnIndex="0" GridPane.rowIndex="8" text="Mode of Operation" />
+    <ComboBox GridPane.columnIndex="0" GridPane.rowIndex="9" fx:id="DesModeOfOperationComboBox" />
+
+    <Label GridPane.columnIndex="0" GridPane.rowIndex="10" text="Output" />
+    <TextArea GridPane.columnIndex="0" GridPane.rowIndex="11"  fx:id="DesOutputTextArea" editable="false" />
+
+    <GridPane GridPane.columnIndex="0" GridPane.rowIndex="12">
+        <Button GridPane.columnIndex="0" GridPane.rowIndex="0" text="Encrypt" fx:id="DESEncryptButton" />
+        <Button GridPane.columnIndex="1" GridPane.rowIndex="0" text="Decrypt" fx:id="DESDecryptButton" />
+    </GridPane>
+
+</GridPane>

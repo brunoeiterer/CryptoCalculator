@@ -6,18 +6,24 @@ plugins {
 sourceSets {
     main {
         java {
-            srcDirs 'src'
+            srcDirs 'src/main/java'
         }
     }
 }
 
 javafx {
     version = "14.0.2.1"
-    modules = [ 'javafx.controls' ]
+    modules = [ 'javafx.controls',
+                'javafx.fxml' 
+              ]
 }
 
 repositories {
     mavenCentral()
+}
+
+dependencies {
+    compile 'commons-codec:commons-codec:1.8'
 }
 
 mainClassName = "Main"

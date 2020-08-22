@@ -34,3 +34,12 @@ gradle-app.setting
 
 # Cache of project
 .gradletasknamecache
+
+# Outputs
+/bin/*
+
+# VSCode project
+.classpath
+.project
+.settings/*
+.vscode/*
