@@ -48,7 +48,7 @@ public class DESController{
 
         this.DesModeOfOperationComboBox.getItems().add("ECB");
         this.DesModeOfOperationComboBox.getItems().add("CBC");
-        this.DesModeOfOperationComboBox.getItems().add("CFB");
+        this.DesModeOfOperationComboBox.getItems().add("CFB8");
         this.DesModeOfOperationComboBox.getItems().add("OFB");
         this.DesModeOfOperationComboBox.setValue("ECB");
         this.DesModeOfOperationComboBox.setOnAction(new EventHandler<ActionEvent>(){
@@ -185,7 +185,7 @@ public class DESController{
                 this.DESICVTextField.setVisible(true);
                 this.DESICVTextField.setManaged(true);
                 break;
-            case "CFB":
+            case "CFB8":
                 this.DESICVLabel.setVisible(true);
                 this.DESICVLabel.setManaged(true);
                 this.DESICVTextField.setVisible(true);
