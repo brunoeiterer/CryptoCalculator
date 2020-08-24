@@ -11,7 +11,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) {
         try{
-            Parent root = FXMLLoader.load(getClass().getResource("DES.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
 
             Scene scene = new Scene(root);
             stage.setTitle("CryptoCalculator");

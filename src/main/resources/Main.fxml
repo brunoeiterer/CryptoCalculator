@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.ScrollPane?>
+
+<GridPane xmlns:fx="http://javafx.com/fxml" fx:controller="MainController" fx:id="MainGridPane">
+
+    <ScrollPane GridPane.columnIndex="0" GridPane.rowIndex="0" HbarPolicy="never" VbarPolicy="always">
+        <content>
+            <ListView fx:id="algorithmsListView" prefHeight="${MainGridPane.height}" />
+        </content>
+    </ScrollPane>
+
+    <Pane fx:id="calculatorPane" GridPane.columnIndex="1" GridPane.rowIndex="0">
+        <fx:include source="DES.fxml" />
+    </Pane>
+
+</GridPane>
