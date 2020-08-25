@@ -4,7 +4,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Button;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
 import javafx.fxml.FXML;
 
 import javafx.event.ActionEvent;
@@ -33,6 +32,8 @@ public class DESController{
     @FXML 
     private ComboBox<String> DesModeOfOperationComboBox;
     @FXML
+    private ComboBox<String> DesPaddingComboBox;
+    @FXML
     private TextArea DesOutputTextArea;
     @FXML
     private Button DESEncryptButton;
@@ -42,6 +43,8 @@ public class DESController{
     private Label DESICVLabel;
     @FXML
     private TextField DESICVTextField;
+
+    private String Padding;
 
     @FXML
     public void initialize(){
@@ -54,6 +57,16 @@ public class DESController{
         this.DesModeOfOperationComboBox.setOnAction(new EventHandler<ActionEvent>(){
             public void handle(ActionEvent event){
                 DESController.this.EncryptionModeChanged(event);
+            }
+        });
+
+        this.Padding = "/NoPadding";
+        this.DesPaddingComboBox.getItems().add("NoPadding");
+        this.DesPaddingComboBox.getItems().add("PKCS5Padding");
+        this.DesPaddingComboBox.setValue("NoPadding");
+        this.DesPaddingComboBox.setOnAction(new EventHandler<ActionEvent>(){
+            public void handle(ActionEvent event){
+                DESController.this.PaddingChanged(event);
             }
         });
 
@@ -200,6 +213,10 @@ public class DESController{
         }
     }
 
+    private void PaddingChanged(ActionEvent event){
+        this.Padding = "/" +  this.DesPaddingComboBox.getValue();
+    }
+
     private void Codec(int operation, String modeOfOperation){
         SecretKeySpec key = null;
         IvParameterSpec iv = null;
@@ -217,7 +234,7 @@ public class DESController{
         }
 
         try{
-            String cipherInstanceName = "DES/" + modeOfOperation + "/NoPadding";
+            String cipherInstanceName = "DES/" + modeOfOperation + this.Padding;
             Cipher cipher = Cipher.getInstance(cipherInstanceName);
             cipher.init(operation, key, iv);
             byte ciphertext[] = cipher.doFinal(input);
