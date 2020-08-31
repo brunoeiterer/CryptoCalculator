@@ -22,10 +22,13 @@
     <Label GridPane.columnIndex="0" GridPane.rowIndex="6" text="Mode of Operation" />
     <ComboBox GridPane.columnIndex="0" GridPane.rowIndex="7" fx:id="TDESModeOfOperationComboBox" />
 
-    <Label GridPane.columnIndex="0" GridPane.rowIndex="8" text="Output" />
-    <TextArea GridPane.columnIndex="0" GridPane.rowIndex="9"  fx:id="TDESOutputTextArea" editable="false" />
+    <Label GridPane.columnIndex="0" GridPane.rowIndex="8" text="Padding" />
+    <ComboBox GridPane.columnIndex="0" GridPane.rowIndex="9" fx:id="TDESPaddingComboBox" />
 
-    <GridPane GridPane.columnIndex="0" GridPane.rowIndex="10">
+    <Label GridPane.columnIndex="0" GridPane.rowIndex="10" text="Output" />
+    <TextArea GridPane.columnIndex="0" GridPane.rowIndex="11"  fx:id="TDESOutputTextArea" editable="false" />
+
+    <GridPane GridPane.columnIndex="0" GridPane.rowIndex="12">
         <Button GridPane.columnIndex="0" GridPane.rowIndex="0" text="Encrypt" fx:id="TDESEncryptButton" />
         <Button GridPane.columnIndex="1" GridPane.rowIndex="0" text="Decrypt" fx:id="TDESDecryptButton" />
     </GridPane>
