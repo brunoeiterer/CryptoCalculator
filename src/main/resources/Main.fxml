@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.control.ScrollPane?>
 
-<GridPane xmlns:fx="http://javafx.com/fxml" fx:controller="MainController" fx:id="MainGridPane">
+<GridPane xmlns:fx="http://javafx.com/fxml" fx:controller="MainController" fx:id="MainGridPane" maxHeight="Infinity" maxWidth="Infinity">
 
     <ScrollPane GridPane.columnIndex="0" GridPane.rowIndex="0" HbarPolicy="never" VbarPolicy="always">
         <content>
@@ -14,8 +14,8 @@
         </content>
     </ScrollPane>
 
-    <Pane fx:id="calculatorPane" GridPane.columnIndex="1" GridPane.rowIndex="0">
+    <ScrollPane fx:id="calculatorScrollPane" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.hgrow="always" GridPane.vgrow="always">
         <fx:include source="DES.fxml" />
-    </Pane>
+    </ScrollPane>
 
 </GridPane>
