@@ -69,6 +69,29 @@ class DESTests {
     }
 
     @Test
+    void DESECBPKCS5Encrypt(FxRobot robot) {
+        /* select ECB Mode of Operation */
+        robot.clickOn("#DesModeOfOperationComboBox");
+        robot.clickOn("ECB");
+
+        /* select PKCS5 padding */
+        robot.clickOn("#DesPaddingComboBox");
+        robot.clickOn("PKCS5Padding");
+
+        /* write input */
+        robot.clickOn("#DESInputTextArea").write("0000000000000000");
+
+        /* write key */
+        robot.clickOn("#DESKeyTextField").write("0123456789ABCDEF");
+
+        /* click on Encrypt button */
+        robot.clickOn("#DESEncryptButton");
+
+        /* verify if encryption was successful */
+        FxAssert.verifyThat("#DesOutputTextArea", TextInputControlMatchers.hasText("d5d44ff720683d0d086f9a1d74c94d4e"));
+    }
+
+    @Test
     void DESECBDecrypt(FxRobot robot) {
         /* select ECB Mode of Operation */
         robot.clickOn("#DesModeOfOperationComboBox");
