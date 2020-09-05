@@ -113,4 +113,27 @@ class DESTests {
         /* verify if encryption was successful */
         FxAssert.verifyThat("#DesOutputTextArea", TextInputControlMatchers.hasText("0000000000000000"));
     }
+
+    @Test
+    void DESECBPKCS5Decrypt(FxRobot robot) {
+        /* select ECB Mode of Operation */
+        robot.clickOn("#DesModeOfOperationComboBox");
+        robot.clickOn("ECB");
+
+        /* select PKCS5 padding */
+        robot.clickOn("#DesPaddingComboBox");
+        robot.clickOn("PKCS5Padding");
+
+        /* write input */
+        robot.clickOn("#DESInputTextArea").write("d5d44ff720683d0d086f9a1d74c94d4e");
+
+        /* write key */
+        robot.clickOn("#DESKeyTextField").write("0123456789ABCDEF");
+
+        /* click on Encrypt button */
+        robot.clickOn("#DESDecryptButton");
+
+        /* verify if encryption was successful */
+        FxAssert.verifyThat("#DesOutputTextArea", TextInputControlMatchers.hasText("0000000000000000"));
+    }
 }
