@@ -344,4 +344,30 @@ class DESTests {
         /* verify if decryption was successful */
         FxAssert.verifyThat("#DesOutputTextArea", TextInputControlMatchers.hasText("0000000000000000"));
     }
+
+    @Test
+    void DESOFB8EncryptNoPadding(FxRobot robot) {
+        /* select ECB Mode of Operation */
+        robot.clickOn("#DesModeOfOperationComboBox");
+        robot.clickOn("OFB8");
+
+        /* select noPadding */
+        robot.clickOn("#DesPaddingComboBox");
+        robot.clickOn("NoPadding");
+
+        /* write input */
+        robot.clickOn("#DESInputTextArea").write("0000000000000000");
+
+        /* write ICV */
+        robot.clickOn("#DESICVTextField").write("0123456789ABCDEF");
+
+        /* write key */
+        robot.clickOn("#DESKeyTextField").write("0123456789ABCDEF");
+
+        /* click on Encrypt button */
+        robot.clickOn("#DESEncryptButton");
+
+        /* verify if encryption was successful */
+        FxAssert.verifyThat("#DesOutputTextArea", TextInputControlMatchers.hasText("5679535718144520"));
+    }
 }
