@@ -22,6 +22,19 @@ test {
     jvmArgs "-Dheadless=${project.hasProperty('headless') ? project.headless : false}"
 }
 
+allprojects {
+    tasks.withType(Test) {
+        testLogging {
+            exceptionFormat "full"
+            showCauses true
+            showExceptions true
+            showStackTraces true
+            showStandardStreams true
+            events = ["passed", "skipped", "failed", "standardOut", "standardError"]
+        }
+    }
+}
+
 javafx {
     version = "14.0.2.1"
     modules = [ 'javafx.controls',
