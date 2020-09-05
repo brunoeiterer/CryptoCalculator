@@ -67,4 +67,27 @@ class DESTests {
         /* verify if encryption was successful */
         FxAssert.verifyThat("#DesOutputTextArea", TextInputControlMatchers.hasText("d5d44ff720683d0d"));
     }
+
+    @Test
+    void DESECBDecrypt(FxRobot robot) {
+        /* select ECB Mode of Operation */
+        robot.clickOn("#DesModeOfOperationComboBox");
+        robot.clickOn("ECB");
+
+        /* select noPadding */
+        robot.clickOn("#DesPaddingComboBox");
+        robot.clickOn("NoPadding");
+
+        /* write input */
+        robot.clickOn("#DESInputTextArea").write("D5D44FF720683D0D");
+
+        /* write key */
+        robot.clickOn("#DESKeyTextField").write("0123456789ABCDEF");
+
+        /* click on Encrypt button */
+        robot.clickOn("#DESDecryptButton");
+
+        /* verify if encryption was successful */
+        FxAssert.verifyThat("#DesOutputTextArea", TextInputControlMatchers.hasText("0000000000000000"));
+    }
 }
