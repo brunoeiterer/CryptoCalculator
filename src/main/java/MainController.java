@@ -1,5 +1,5 @@
 import javafx.scene.control.ListView;
-import javafx.scene.layout.Pane;
+import javafx.scene.control.ScrollPane;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 
@@ -13,7 +13,7 @@ public class MainController{
     @FXML
     private ListView<String> algorithmsListView;
     @FXML
-    private Pane calculatorPane;
+    private ScrollPane calculatorScrollPane;
 
     @FXML
     public void initialize(){
@@ -29,9 +29,9 @@ public class MainController{
     }
     
     private void updateCalculatorPane(String newPane){
-        this.calculatorPane.getChildren().clear();
+        this.calculatorScrollPane.setContent(null);
         try{
-            this.calculatorPane.getChildren().add(FXMLLoader.load(getClass().getResource(newPane + ".fxml")));
+            this.calculatorScrollPane.setContent(FXMLLoader.load(getClass().getResource(newPane + ".fxml")));
         }
         catch (IOException e){
             e.printStackTrace();
