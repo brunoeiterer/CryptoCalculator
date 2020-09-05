@@ -87,7 +87,7 @@ class DESTests {
         /* click on Encrypt button */
         robot.clickOn("#DESEncryptButton");
 
-        /* verify if encryption was successful */
+        /* verify if decryption was successful */
         FxAssert.verifyThat("#DesOutputTextArea", TextInputControlMatchers.hasText("d5d44ff720683d0d086f9a1d74c94d4e"));
     }
 
@@ -133,7 +133,7 @@ class DESTests {
         /* click on Encrypt button */
         robot.clickOn("#DESDecryptButton");
 
-        /* verify if encryption was successful */
+        /* verify if decryption was successful */
         FxAssert.verifyThat("#DesOutputTextArea", TextInputControlMatchers.hasText("0000000000000000"));
     }
 }
