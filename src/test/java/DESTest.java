@@ -36,8 +36,8 @@ class DESTests {
             Scene scene = new Scene(root);
             stage.setTitle("CryptoCalculator");
             stage.setScene(scene);
-            stage.setHeight(1024);
-            stage.setWidth(768);
+            stage.setHeight(800);
+            stage.setWidth(600);
             stage.show();
         }
         catch (IOException e){
