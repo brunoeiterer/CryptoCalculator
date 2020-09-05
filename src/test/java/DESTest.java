@@ -318,4 +318,30 @@ class DESTests {
         /* verify if decryption was successful */
         FxAssert.verifyThat("#DesOutputTextArea", TextInputControlMatchers.hasText("0000000000000000"));
     }
+
+    @Test
+    void DESCFB8PKCS5Decrypt(FxRobot robot) {
+        /* select ECB Mode of Operation */
+        robot.clickOn("#DesModeOfOperationComboBox");
+        robot.clickOn("CFB8");
+
+        /* select noPadding */
+        robot.clickOn("#DesPaddingComboBox");
+        robot.clickOn("PKCS5Padding");
+
+        /* write input */
+        robot.clickOn("#DESInputTextArea").write("5679535718144520e5c0add3ad86f4f4");
+
+        /* write ICV */
+        robot.clickOn("#DESICVTextField").write("0123456789ABCDEF");
+
+        /* write key */
+        robot.clickOn("#DESKeyTextField").write("0123456789ABCDEF");
+
+        /* click on Decrypt button */
+        robot.clickOn("#DESDecryptButton");
+
+        /* verify if decryption was successful */
+        FxAssert.verifyThat("#DesOutputTextArea", TextInputControlMatchers.hasText("0000000000000000"));
+    }
 }
